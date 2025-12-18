@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Affiliate Verification Portal</title>
+  <style>
+    :root{
+      --red:#e11d2e;
+      --bg1:#fff5f5;
+      --bg2:#f1f5f9;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --okbg:#ecfdf3;
+      --ok:#15803d;
+      --badbg:#fef2f2;
+      --bad:#b91c1c;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      padding:16px;
+    }
+    .wrap{max-width:880px;margin:0 auto}
+    .hero{
+      background:var(--red);
+      color:#fff;
+      border-radius:18px;
+      padding:16px 18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+    .logo{
+      width:52px;height:52px;
+      border-radius:12px;
+      background:#fff;
+      padding:8px;
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo img{max-width:100%;max-height:100%}
+    .hero h1{margin:0;font-size:20px}
+    .hero p{margin:4px 0 0;font-size:13px;opacity:.9}
+
+    .card{
+      margin-top:16px;
+      background:var(--card);
+      border-radius:18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+      padding:18px;
+      border:1px solid rgba(226,232,240,.7);
+    }
+
+    .bangla-note{
+      margin:0 0 12px 0;
+      line-height:1.65;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .warn{
+      margin:10px 0 14px 0;
+      font-weight:700;
+      color:#dc2626;
+      font-size:14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    label{display:block;font-weight:700;font-size:13px;margin:0 0 6px 0}
+    input{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      font-size:14px;
+      outline:none;
+    }
+    input:focus{border-color:#94a3b8}
+    .full{grid-column:1 / -1}
+
+    .btn{
+      margin-top:12px;
+      width:100%;
+      background:var(--red);
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding:14px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .btn:disabled{opacity:.65;cursor:not-allowed}
+
+    .helper{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .helper b{color:var(--text)}
+    .helper .hot{color:#dc2626;font-weight:800}
+
+    .result{
+      margin-top:16px;
+      border-radius:14px;
+      padding:14px;
+      border:1px solid transparent;
+      display:none;
+    }
+    .result.ok{background:var(--okbg);border-color:#22c55e}
+    .result.bad{background:var(--badbg);border-color:#ef4444}
+    .result .title{
+      font-weight:900;
+      margin:0 0 10px 0;
+      font-size:15px;
+    }
+
+    .profile{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .photo{
+      width:96px;height:96px;border-radius:14px;
+      border:1px solid var(--line);
+      object-fit:cover;
+      background:#fff;
+      flex:0 0 auto;
+    }
+    .info{flex:1;color:#065f46;font-size:14px;line-height:1.6}
+    .info a{color:#2563eb}
+
+    .helpbox{
+      margin-top:14px;
+      padding:14px;
+      border-radius:14px;
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+      font-size:13px;
+      line-height:1.65;
+    }
+    .helpbox .t{font-weight:900;margin-bottom:6px}
+    .helpbox .h{font-weight:900;margin-top:8px}
+
+    @media (max-width: 680px){
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:18px}
+      .logo{width:46px;height:46px}
+      .photo{width:88px;height:88px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="logo">
+        <img src="https://i.imgur.com/TPLibYw.png" alt="10 Minute School Logo">
+      </div>
+      <div>
+        <h1>Affiliate Verification Portal</h1>
+        <p>Instantly verify whether someone is an official 10 Minute School affiliate.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="bangla-note">
+        গুরুত্বপূর্ণ নির্দেশনা: ১০ মিনিট স্কুল-এর পক্ষ থেকে কেউ যোগাযোগ করলে, কোনো ধরনের টাকা প্রদান,
+        ব্যক্তিগত তথ্য শেয়ার বা ভর্তি সংক্রান্ত সিদ্ধান্ত নেওয়ার আগে অবশ্যই নিচের ভেরিফিকেশন সিস্টেম ব্যবহার করে
+        তার অ্যাফিলিয়েট পরিচয় যাচাই করুন।
+      </p>
+      <p class="bangla-note">
+        শুধুমাত্র এই সিস্টেমে “Verified / Official Affiliate” হিসেবে প্রদর্শিত ব্যক্তিরাই ১০ মিনিট স্কুল-এর অনুমোদিত অ্যাফিলিয়েট।
+      </p>
+      <div class="warn">সতর্কতা: ভেরিফিকেশন ছাড়া কোনো ব্যক্তির কাছে টাকা পাঠাবেন না বা ব্যক্তিগত তথ্য শেয়ার করবেন না।</div>
+
+      <div class="grid">
+        <div>
+          <label>Affiliate Code (required)</label>
+          <input id="code" placeholder="e.g. AFB144" autocomplete="off" />
+        </div>
+        <div>
+          <label>Phone Number (required)</label>
+          <input id="phone" placeholder="e.g. 01XXXXXXXXX" autocomplete="off" />
+        </div>
+        <div class="full">
+          <button id="btn" class="btn">Verify Affiliate</button>
+          <div class="helper">
+            If you are still unsure or confused, please contact the <b>10 Minute School Affiliation Team Helpline:</b>
+            <span class="hot">+880 1896-057968</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="result" class="result"></div>
+
+      <div class="helpbox">
+        <div class="t">সহায়তা প্রয়োজন?</div>
+        যদি কোনো অ্যাফিলিয়েট ভেরিফিকেশন সিস্টেমে খুঁজে না পাওয়া যায়, অথবা যাচাই সংক্রান্ত বিষয়ে আপনি নিশ্চিত না হন,
+        তাহলে অনুগ্রহ করে সরাসরি ১০ মিনিট স্কুল-এর অ্যাফিলিয়েশন টিমের সঙ্গে যোগাযোগ করুন।
+        <div class="h">হেল্পলাইন নম্বর: +880 1896-057968</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Step 2 is ONLY the UI shell.
+    // In Step 3, we will connect this to your Apps Script web app via fetch().
+    const btn = document.getElementById('btn');
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', () => {
+      result.className = 'result bad';
+      result.style.display = 'block';
+      result.innerHTML = `
+        <div class="title" style="color:#b91c1c">Not connected yet</div>
+        Backend connection will be added in Step 3 (Apps Script API).
+      `;
+    });
+  </script>
+</body>
+</html>
